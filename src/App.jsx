@@ -1,12 +1,13 @@
-import { useState } from 'react'
+
+import Main from './components/main/main'
+
+//import csss
 import './App.css'
 
 function App() {
 
   return (
-    <div className="App">
-      
-    </div>
+    <Main />
   )
 }
 
