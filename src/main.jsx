@@ -7,11 +7,15 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 // components and css
 import App from './App'
+import Info from './components/info/info'
+import Layout from './components/layout/layout'
 // import Main from './components/main/main'
 import './index.css'
 
+
 const router = createBrowserRouter([
-  {path: '/', element: <App />}
+  {path: '/', element: <App />},
+  {path: '/createCV/*', element: <Layout />,}
 ])
 
 
