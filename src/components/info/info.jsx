@@ -20,10 +20,18 @@ const Info = (props) => {
         props.update(data)
     },[data])
 
+    const getImgValueFromInput =  (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setData({
+                ...data,img: URL.createObjectURL(event.target.files[0])
+            })
+            // setIData(URL.createObjectURL(event.target.files[0]));
+          }
+    }
+
     return (
         <form className='info' onSubmit={handleSubmit((data) => {
             console.log(data)
-            updateHandler()
             setData(data)
         })}>
             <div className='back'>
@@ -63,7 +71,7 @@ const Info = (props) => {
             <div className='info-img'>
                 <label htmlFor='upload'>პირადი ფოტოს ატვირთვა</label>
                 <label className='input' htmlFor='upload'>ატვირთვა</label>
-                <input type='file' id='upload' />
+                <input type='file' id='upload' onChange={(event) => getImgValueFromInput(event)} />
                 {/* <div  for='upload'></div> */}
             </div>
 
