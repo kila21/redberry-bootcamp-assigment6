@@ -189,3 +189,23 @@ for all common styles
     font-weight: 300;
     color: #2E2E2E;
 }
+
+.error {
+    border: 1px solid #EF5050 !important;
+}
+
+.valid {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+}
+
+.info-person__name,
+.info-person__surname,
+.info-email,
+.info-mobile{
+    position: relative;
+    height: 85px;
+}
