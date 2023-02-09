@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 
 import './info.css'
 import valid from '../../assets/images/valid.svg'
+import { useNavigate } from 'react-router-dom'
 
 
 const Info = (props) => {
@@ -15,7 +16,9 @@ const Info = (props) => {
         mobile: '',
     });
 
-    const {register, handleSubmit, formState: {errors,touchedFields}} = useForm({mode: 'all'})
+    const navigate = useNavigate()
+
+    const {register, handleSubmit, formState: {errors,touchedFields, isValid}} = useForm({mode: 'all'})
  
     useEffect(()=>{
         props.update(data)
@@ -37,15 +40,9 @@ const Info = (props) => {
         return new RegExp(georgianNunmber).test(value)
     }
 
-    const addNumberSpace = (e) => {
-        if(e.target.value.length === 3) {
-            // console.log(e.target.value)
-            // e.target.value += ' '
-        }
-    }
 
     const getImgValueFromInput =  (event) => {
-        console.log('img')
+        console.log(event)
         if (event.target.files && event.target.files[0]) {
             setData({
                 ...data,img: URL.createObjectURL(event.target.files[0])
@@ -55,8 +52,12 @@ const Info = (props) => {
     }
 
     return (
-        <form className='info' onSubmit={handleSubmit((data) => {
-            // setData(data)
+        <form className='info' onSubmit={handleSubmit((d) => {
+            if(isValid) {
+                // setData(data)
+                sessionStorage.setItem('data', data)
+                navigate('/createCV/education')
+            }
         })}>
             <div className='back'>
                 &lt;
