@@ -14,11 +14,14 @@ const Info = (props) => {
         mobile: '',
     });
 
-    const {register, handleSubmit, formState: {errors}} = useForm()
-
+    const {register, handleSubmit, formState: {errors}} = useForm({mode: 'all'})
+ 
     useEffect(()=>{
         props.update(data)
+
     },[data])
+
+    console.log(errors)
 
     const getImgValueFromInput =  (event) => {
         if (event.target.files && event.target.files[0]) {
@@ -50,7 +53,11 @@ const Info = (props) => {
                         id='name' 
                         onKeyUp={(e) => setData({...data,firstName: e.target.value})} 
                         type='text' 
-                        {...register('firstName', {required: 'მინიმუმ 2 ასო, ქართული ასოები'})}
+                        {
+                            ...register('firstName', 
+                            {required: 'მინიმუმ 2 ასო, ქართული ასოები', 
+                            minLength: {value: 2, message: 'მინიმუმ 2 ასო, ქართული ასოები'}})
+                        }
                     />
                     <p>{errors.firstName?.message}</p>
                 </div>
@@ -60,7 +67,11 @@ const Info = (props) => {
                     <input id='lastname'
                         onKeyUp={(e) => setData({...data,lastName: e.target.value})}
                         type='text'
-                        {...register('lastName', {required: 'მინიმუმ 2 ასო, ქართული ასოები', minLength: 2})}
+                        {
+                            ...register('lastName',
+                            {required: 'მინიმუმ 2 ასო, ქართული ასოები',
+                            minLength: {value: 2, message: 'მინიმუმ 2 ასო, ქართული ასოები'}})
+                        }
                     />
                     <p>{errors.lastName?.message}</p>
                 </div>
