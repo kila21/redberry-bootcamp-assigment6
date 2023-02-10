@@ -1,0 +1,101 @@
+.education {
+    width: 100%;
+    height: 674px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-bottom: 1px solid #C1C1C1;
+    /* padding-top: 47px; */
+}
+
+.education p {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 300;
+    color: #2E2E2E;
+}
+.education input {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* 
+title styles
+ */
+.education-title {
+    margin-top: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1A1A1A;
+}
+.education-title h1 {
+    font-size: 24px;
+    line-height: 29px;
+}
+.education-title span {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.education-school {
+    display: flex;
+    flex-direction: column;   
+}
+
+.education-school input {
+    margin-top: 8px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    height: 48px;
+    outline: none;
+    padding: 13px 16px;
+}
+
+.education-degree-date {
+    display: flex;
+}
+
+.education-degree,
+.education-date {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.education-date {
+    margin-left: 56px;
+}
+
+.education-degree select,
+.education-date input {
+    width: 371px;
+    height: 48px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 13px 16px;
+}
+
+
+.education-textarea {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-textarea textarea {
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    margin-top: 8px;
+    height: 103px;
+    outline: none;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 21px;
+    padding: 13px 16px;
+    resize: none;
+}
