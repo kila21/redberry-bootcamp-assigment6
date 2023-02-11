@@ -1,0 +1,65 @@
+.back {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    top: 45px;
+    left: 45px;
+    color: #2E2E2E;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100%;
+    padding: 0 150px;
+    background-color: #F9F9F9;
+}
+
+
+.experience-addNew-button {
+    background-color: #62A1EB;
+    border-radius: 4px;
+    width: 289px;
+    height: 48px;
+    margin-top: 45px;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.bottom-buttons {
+    display: flex;
+    /* position: absolute; */
+    bottom: 65px;
+    margin-top: 130px;
+}
+
+.bottom-buttons button {
+    background-color: #6B40E3;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;   
+    font-size: 16px;
+    line-height: 20px;
+    width: 113px;
+    height: 48px;
+}
+.experience-button-back {
+    margin-right: 535px;
+    
+}
+
+.bottom-buttons .experience-button-done {
+    width: 151px;
+}
