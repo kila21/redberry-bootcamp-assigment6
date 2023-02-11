@@ -1,17 +1,31 @@
 import { Route, Routes } from 'react-router-dom';
+// import {withRouter} from 'react-router'
 import Info from '../info/info'
 import LayoutRight from './LayoutRight/LayoutRight'
 
 import './layout.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import Education from '../education/education';
 
 
 const Layout = (props) => {
     const [infoForm, setInfoForm] = useState()
+    const [educationsArray, setEducationsArray] = useState()
 
     const infoFormData = (form) => {
         setInfoForm(form)
-        console.log(form)
+    }
+
+    useEffect(() => {
+        if(sessionStorage.getItem('infoFormData')) {
+            const infoData = JSON.parse(sessionStorage.getItem('infoFormData'))
+            console.log(infoData)
+            setInfoForm(infoData)
+        }
+    },[])
+
+    const educationFormsData = (forms) => {
+        setEducationsArray(forms)
     }
 
     return (
@@ -20,15 +34,15 @@ const Layout = (props) => {
            <div className='layout-left'>
                 <Routes>
                     <Route path='/info' element={<Info update={infoFormData}/>}/>
-                    <Route path='/education' element={<div>Education</div>} />
+                    <Route path='/education' element={<Education update={educationFormsData}/>} />
                 </Routes>
            </div>
             
             <div className='layout-right'>
-                <LayoutRight infoForm={infoForm}/>
+                <LayoutRight infoForm={infoForm} educationForm={educationsArray}/>
             </div>
         </div>
     )
 }
 
-export default Layout
+export default Layout;

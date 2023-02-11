@@ -5,19 +5,26 @@ import './education.css'
 import EducationForm from './educationForm';
 
 const Education = (props) => {
-
-    const [educationsData, setEducationsData] = useState([
+    
+    const getEducationsFromStorage = JSON.parse(sessionStorage.getItem('educationFormsData'))
+    const [educationsData, setEducationsData] = useState(
+        getEducationsFromStorage ? 
+        getEducationsFromStorage : 
+        [
         {institute: 'ragaca', degree: '', due_date: '', description: ''},
-        // {institute: 'ragaca', degree: '', due_date: '', description: ''}
-    ]);
+        ]);
+
+    const [isValid,setIsValid] = useState(false)
+    const [educatonsLength,setEducationsLength] = useState(getEducationsFromStorage ? getEducationsFromStorage.length : 1)
     const navigate = useNavigate()
 
     const clickHandler = () => {
         navigate('/createCV/info')
     }
 
-    const updateEducationsData = (index,form) => {
-        // console.log(index,form)
+    console.log(educationsData)
+    const updateEducationsData = (index,form, isValid) => {
+        setIsValid(isValid)
         const updatedArray = educationsData.map((item,i)=>{
             if(i === index) {
                 return form
@@ -25,22 +32,38 @@ const Education = (props) => {
                 return item
             }
         })
-        setEducationsData(updatedArray)
+            setEducationsData(updatedArray)
     }
 
     const addObject =  () => {
-        const newData = [
-            ...educationsData,
-        ]
-        newData.push({institute: '', degree: '', due_date: '', description: ''})
-        setEducationsData(newData)
+        if(isValid) {
+            const newData = [
+                ...educationsData,
+            ]
+            newData.push({institute: '', degree: '', due_date: '', description: ''})
+            setEducationsData(newData)
+            setIsValid(false);
+        }else {
+            alert('გთხოვთ შეავსოთ განათლების ფორმა')
+        }
+
         // console.log(educations)
+    }
+
+
+    const Submit = () => {
+        if(isValid) {
+            sessionStorage.setItem('educationFormsData', JSON.stringify(educationsData));
+            navigate('/createCV/info');
+        }else {
+            alert('გთხოვთ შეავსოთ ფორმა')
+        }
     }
 
     useEffect(()=>{
         props.update(educationsData)
-        console.log(educationsData)
-    },[educationsData])
+        sessionStorage.setItem('educationFormsData', JSON.stringify(educationsData));
+    },[educationsData, isValid])
 
     return (
         <div className='education-container'>
@@ -60,7 +83,7 @@ const Education = (props) => {
             <div className='bottom-buttons'>
                 <button onClick={clickHandler} className='education-button-back'>უკან</button>
 
-                <button className='education-button-done'>დასრულება</button>
+                <button onClick={Submit} className='education-button-done'>დასრულება</button>
             </div>
         </div>
     )

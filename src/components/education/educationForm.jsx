@@ -5,14 +5,34 @@ import './educationForm.css'
 
 const EducationForm =  (props) => {
     const [educationData, setEducationData] = useState(
-        {institute: 'ragaca', degree: '', due_date: '', description: ''}
+        {institute: '', degree: '', due_date: '', description: ''}
     )
 
-    const {register, formState: {errors}} = useForm({
-        mode: 'all'
+    const getDataFromStorage = JSON.parse(sessionStorage.getItem('educationFormsData'));
+    // console.log(getDataFromStorage,getDataFromStorage[props.index]?.institute)
+
+    const {register, formState: {errors,isValid}, getValues} = useForm({
+        mode: 'all',
+        defaultValues: async () => {
+            setEducationData({
+                ...educationData,
+                institute: getDataFromStorage?.[props.index]?.institute,
+                degree: getDataFromStorage?.[props.index]?.degree,
+                due_date: getDataFromStorage?.[props.index]?.due_date,
+                description: getDataFromStorage?.[props.index]?.description
+            })
+
+           return {
+                institute: getDataFromStorage?.[props.index]?.institute || '',
+                degree: getDataFromStorage?.[props.index]?.degree || '',
+                due_date: getDataFromStorage?.[props.index]?.due_date || '',
+                description: getDataFromStorage?.[props.index]?.description || ''
+            }
+        }
     })
+    console.log(getDataFromStorage?.[props.index]?.due_date)
     useEffect(()=>{
-        props.update(props.index, educationData)
+        props.update(props.index, educationData, isValid)
     },[educationData])
 
     return (
@@ -45,7 +65,7 @@ const EducationForm =  (props) => {
 
                 <div className='education-date'>
                     <label htmlFor='date'>დამთავრების რიცხვი</label>
-                    <input onChange={(e)=> setEducationData({...educationData,due_date: e.target.value})} type="date" id='date' />
+                    <input {...register('due_date', {required: true})} onChange={(e)=> setEducationData({...educationData,due_date: e.target.value})} type="date" id='date' />
                 </div>
             </div>
 

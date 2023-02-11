@@ -8,5 +8,9 @@
 .layout-right-info {
     height: 341px;
     width: 100%;
-    border-bottom: 1px solid black;
+}
+
+.layout-right-education {
+    min-height: 341px;
+    /* background-color: black; */
 }
