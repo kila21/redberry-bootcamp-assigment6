@@ -1,0 +1,52 @@
+
+
+.person-education-container {
+    width: 100%;
+    min-height: 200px;
+    max-height: auto;
+    border-bottom: 1px solid #C8C8C8;
+    display: flex;
+    flex-direction: column;
+    margin-top: 26px;
+    /* background-color: black; */
+}
+
+.person-education_title {
+    margin-top: 15px;
+    color: #F93B1D;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.person-education_info {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 15px;
+}
+.person-education_info p {
+    margin-right: 16px;
+}
+
+
+.person-education_date {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 7px;
+    color: #919191
+}
+
+.person-education_description {
+    height: auto;
+    word-wrap: break-word;
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: lowercase;
+    color: #000000;
+    margin-bottom: 32px;
+}
