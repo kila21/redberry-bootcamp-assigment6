@@ -1,0 +1,108 @@
+
+.experience-form {
+    width: 100%;
+    height: 764px;
+    border-bottom: 1px solid #C1C1C1;
+}
+
+.experience-form-position {
+    margin-top: 77px;
+    margin-bottom: 31px;
+}
+
+.experience-form-position,
+.experience-form-employer {
+    position: relative;
+    height: 125px;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-form-position input,
+.experience-form-employer input {
+    padding: 13px 16px;
+    outline: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: 48px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}
+
+.experience-form-position label,
+.experience-form-employer label {
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;;
+}
+
+.experience-form-position p,
+.experience-form-employer p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2E2E2E;;
+}
+
+.experience-form-date {
+    display: flex;
+    /* height: 125px; */
+    margin-top: 31px;
+}
+
+.experience-form-date div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 56px;
+}
+.experience-form-date input {
+    width: 371px;
+    margin-top: 8px;
+    height: 48px;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;   
+    padding: 13px 16px;   
+}
+
+.experience-form-description {
+    margin-top: 33px;
+    display: flex;
+    flex-direction: column;
+}
+.experience-form-description label {
+    margin-bottom: 8px;
+}
+
+.experience-form-description textarea {
+    resize: none;
+    outline: none;
+    border: 1px solid #BCBCBC; 
+    border-radius: 4px;
+    padding-top: 13px;
+    padding-left: 16px;
+    height: 123px;
+}
+
+
+.invalid-icon,
+.valid-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+
+.valid-icon {
+    top: 35%;
+    right: 4%;
+}
+
+.invalid-icon {
+    top: 35%;
+    right: -4%;
+}
