@@ -99,3 +99,8 @@ title styles
     padding: 13px 16px;
     resize: none;
 }
+
+
+.validEducationInput {
+    border: 1px solid green !important;
+}
