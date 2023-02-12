@@ -9,13 +9,15 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import App from './App'
 import Info from './components/info/info'
 import Layout from './components/layout/layout'
+import Submit from './components/submit/submit'
 // import Main from './components/main/main'
 import './index.css'
 
 
 const router = createBrowserRouter([
   {path: '/', element: <App />},
-  {path: '/createCV/*', element: <Layout />,}
+  {path: '/createCV/*', element: <Layout />},
+  {path: '/submit', element: <Submit />}
 ])
 
 

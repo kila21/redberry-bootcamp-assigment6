@@ -9,18 +9,35 @@ import invalid from '../../assets/images/invalid.svg'
 import './experienceForm.css'
 
 
-const ExperienceForm = () => {
+const ExperienceForm = (props) => {
     const [experienceFormData, setExperienceFormData] = useState(
         {position: '', employer: '', start_date: '', due_date: '', description: ''}
     )
 
+    const getDataFromStorage = JSON.parse(sessionStorage.getItem('experienceFormsData'));
     const {register, formState: {errors,isValid, touchedFields}, getValues} = useForm({
-        mode: 'all'
+        mode: 'all',
+        defaultValues: async () => {
+            setExperienceFormData({
+                ...experienceFormData,
+                position: getDataFromStorage?.[props.index]?.position,
+                employer: getDataFromStorage?.[props.index]?.employer,
+                start_date: getDataFromStorage?.[props.index]?.start_date,
+                due_date: getDataFromStorage?.[props.index]?.due_date,
+                description: getDataFromStorage?.[props.index]?.description,
+            })
+            return {
+                position: getDataFromStorage?.[props.index]?.position || '',
+                employer: getDataFromStorage?.[props.index]?.employer || '',
+                start_date: getDataFromStorage?.[props.index]?.start_date || '',
+                due_date: getDataFromStorage?.[props.index]?.due_date || '',
+                description: getDataFromStorage?.[props.index]?.description || '',
+            }
+        }
     })
 
     useEffect(()=>{
-        console.log(getValues())
-        console.log(experienceFormData, isValid)
+        props.update(props.index,experienceFormData, isValid)
     },[experienceFormData])
 
     return (

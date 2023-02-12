@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { isValidElement, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import ExperienceForm from './experienceForm'
@@ -18,23 +18,49 @@ const Experience = (props) => {
         ]
     )
 
+    const updateExperienceData = (index,form, isvalid) => {
+        const updatedArray = experienceData.map((item,i) => {
+            if(i === index) {
+                return form
+            }else {
+                return item
+            }
+        })
+        setExperienceData(updatedArray)
+        setIsValid(isvalid)
+    }   
+
     const addObject = () =>{
         if(isvalid) {
             const newData = [
                 ...experienceData
             ]
+            newData.push({position: '', employer: '', start_date: '', due_date: '', description: ''})
+            setExperienceData(newData)
+            setIsValid(false)
+        }else {
+            alert('გთხოვთ შეავსოთ ფორმა')
         }
-        newData.push({position: '', employer: '', start_date: '', due_date: '', description: ''})
-        setExperienceData(newData)
-        setIsValid(false)
     }
+
+    useEffect(()=> {
+        //aqedan unda  gadasced layouts data
+        props.update(experienceData)
+        sessionStorage.setItem('experienceFormsData', JSON.stringify(experienceData));
+
+    },[experienceData,isvalid])
 
     const clickHandler = () => {
         navigate('/createCV/info')
     }
 
     const Submit = () => {
-        navigate('/createCV/education')
+        if(isvalid) {
+            navigate('/createCV/education')
+        }else {
+            alert('გთხოვთ შეავსოთ ფორმა')
+            console.log(isvalid)
+        }
     }
 
     return (
@@ -44,12 +70,12 @@ const Experience = (props) => {
                 </div>
 
                 <div className='education-title'>
-                    <h1>განათლება</h1>
+                    <h1>გამოცდილება</h1>
                     <span>2/3</span>
             </div>
 
             {experienceData.map((item,index)=>{
-                return <ExperienceForm key={index}/>
+                return <ExperienceForm key={index} index={index} update={updateExperienceData}/>
             })}
 
             <button onClick={addObject} className='experience-addNew-button'>სხვა გამოცდილების დამატება</button>

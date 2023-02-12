@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { set, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import './education.css'
+import axios from 'axios';
+
 import EducationForm from './educationForm';
+
+import './education.css'
 
 const Education = (props) => {
     
@@ -11,7 +14,7 @@ const Education = (props) => {
         getEducationsFromStorage ? 
         getEducationsFromStorage : 
         [
-        {institute: 'ragaca', degree: '', due_date: '', description: ''},
+        {institute: '', degree: '', due_date: '', description: ''},
         ]);
 
     const [isValid,setIsValid] = useState(false)
@@ -19,10 +22,8 @@ const Education = (props) => {
     const navigate = useNavigate()
 
     const clickHandler = () => {
-        navigate('/createCV/info')
+        navigate('/createCv/experience')
     }
-
-    console.log(educationsData)
     const updateEducationsData = (index,form, isValid) => {
         setIsValid(isValid)
         const updatedArray = educationsData.map((item,i)=>{
@@ -47,14 +48,13 @@ const Education = (props) => {
             alert('გთხოვთ შეავსოთ განათლების ფორმა')
         }
 
-        // console.log(educations)
     }
 
 
     const Submit = () => {
         if(isValid) {
-            sessionStorage.setItem('educationFormsData', JSON.stringify(educationsData));
-            navigate('/createCV/info');
+            navigate('/submit')
+
         }else {
             alert('გთხოვთ შეავსოთ ფორმა')
         }

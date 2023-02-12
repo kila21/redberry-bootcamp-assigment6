@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
 import PersonEducation from '../person-education/personEducation';
+import PersonExperience from '../person-experience/personExperience';
 import PersonInfo from '../person-info/personInfo';
 
 import './layoutRight.css'
 
 const LayoutRight = (props) => {
-    console.log(props)
+
     return (
         <div className='layout-right-container'>
             {props?.infoForm ? (
@@ -17,11 +19,11 @@ const LayoutRight = (props) => {
             </div> */}
 
             <div className='layout-right-experience'>
-
+                <PersonExperience experienceForms={props.experienceForm}/>
             </div>
 
             <div className='layout-right-education'>
-                <PersonEducation educationForms={props.educationForm}/>
+                <PersonEducation educationForms={props.educationForm} mainData={props.mainData}/>
             </div>
         </div>
     )

@@ -6,13 +6,19 @@ import './educationForm.css'
 
 const EducationForm =  (props) => {
     const url = 'https://resume.redberryinternship.ge/api/degrees'
+    const getDataFromStorage = JSON.parse(sessionStorage.getItem('educationFormsData'));
+
+    const [degrees, setDegrees] = useState()
     const [educationData, setEducationData] = useState(
         {institute: '', degree: '', due_date: '', description: ''}
     )
-    const [degrees, setDegrees] = useState()
 
-    const getDataFromStorage = JSON.parse(sessionStorage.getItem('educationFormsData'));
-    const {register, formState: {errors,isValid, touchedFields}, getValues} = useForm({
+    const selectValue = getDataFromStorage?.[props.index]?.degree 
+    ? getDataFromStorage?.[props.index]?.degree 
+    : 'აირჩიეთ ხარისხი'
+
+
+    const {register, formState: {errors,isValid, touchedFields}} = useForm({
         mode: 'all',
         defaultValues: async () => {
             setEducationData({
@@ -31,7 +37,6 @@ const EducationForm =  (props) => {
             }
         }
     })
-    console.log(getDataFromStorage?.[props.index]?.due_date)
     useEffect(()=>{
         props.update(props.index, educationData, isValid)
     },[educationData])
@@ -41,6 +46,7 @@ const EducationForm =  (props) => {
             setDegrees(data.data)
         })
     },[])
+    
     return (
         <form className='education'>
             <div className='education-school'>
@@ -65,9 +71,10 @@ const EducationForm =  (props) => {
                     onInput={(e) => setEducationData({...educationData,degree: e.target.value})} 
                     type="select"
                     id='degree' 
+                    value={selectValue}
                     className={!errors?.degree && !touchedFields?.degree ? '' : 'validEducationInput'}
                     >
-                        <option value="" disabled selected hidden>აირჩიეთ ხარისხი</option>
+                        {/* <option value="" disabled selected hidden>აირჩიეთ ხარისხი</option> */}
                         {/* <option value="ბაკალავრი">ბაკალავრი</option>
                         <option value='სტუდენტი'>სტუდენტი</option> */}
                         {degrees?.map((item)=>{
