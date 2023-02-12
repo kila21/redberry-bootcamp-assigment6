@@ -8,28 +8,27 @@ const PersonEducation = (props) => {
         if(props.educationForms) {
             return props.educationForms.map((item,index) => {
                 return (
-                    <div className="person-education-container">
+                    <div key={index} className="person-education-container">
                         {
-                        !props.educationForms?.[index].institute &&
-                        !props.educationForms?.[index].degree && 
-                        !props.educationForms?.[index].due_date && 
-                        !props.educationForms?.[index].description
+                        !item.institute &&
+                        !item.degree && 
+                        !item.due_date && 
+                        !item.description
                         ? '' 
                         : (<h3 className='person-education_title'>განათლება</h3>)}
                         <div className='person-education_info'>
-                            <p>{props.educationForms?.[index].institute}</p>
-                            <p>{props.educationForms?.[index].degree}</p>
+                            <p>{item.institute}</p>
+                            <p>{item.degree}</p>
                         </div>
-                        <p className='person-education_date'>{props.educationForms?.[index].due_date}</p>
-                        <p className='person-education_description'>{props.educationForms?.[index].description}</p>
+                        <p className='person-education_date'>{item.due_date}</p>
+                        <p className='person-education_description'>{item.description}</p>
                     </div>
                 )
             })
         }
     }
 
-    useEffect(()=>{
-    },[props])
+
     return (
         displayEducationContent()
     )

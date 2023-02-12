@@ -1,0 +1,57 @@
+
+
+.person-experience-container {
+    width: 100%;
+    min-height: 200px;
+    max-height: auto;
+    border-bottom: 1px solid #C8C8C8;
+    display: flex;
+    flex-direction: column;
+    margin-top: 26px;
+    /* background-color: black; */
+}
+
+.person-experience_title {
+    margin-top: 15px;
+    color: #F93B1D;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.person-experience_info {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 15px;
+}
+.person-experience_info p {
+    margin-right: 16px;
+}
+
+
+.person-experience_date {
+    display: flex;
+    margin-top: 7px;
+    
+}
+.person-experience_date p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #919191;
+    margin-right: 8px;
+}
+
+.person-experience_description {
+    height: auto;
+    word-wrap: break-word;
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: lowercase;
+    color: #000000;
+    margin-bottom: 32px;
+}
