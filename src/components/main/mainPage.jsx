@@ -4,6 +4,7 @@ import './mainPage.css'
 //import images
 import redberryStamp  from '../../assets/images/redbery-stamp.svg'
 import redberryLogo from '../../assets/images/redbery-logo.svg'
+import background from '../../assets/images/background.png'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -17,7 +18,7 @@ const MainPage = () => {
 
 
     return (
-        <div className="main-page">
+        <div style={{backgroundImage: `url(${background})`}} className="main-page">
             <div className='main-page-redberryLogo-container'>
                 <img className='main-page-redberryLogo' src={redberryLogo} alt='redberry logo'/>
             </div>
