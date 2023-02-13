@@ -59,7 +59,7 @@ const Experience = (props) => {
             navigate('/createCV/education')
         }else {
             alert('გთხოვთ შეავსოთ ფორმა')
-            console.log(isvalid)
+       
         }
     }
 

@@ -1,0 +1,178 @@
+.submit-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.back {
+    /* position: absolute; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    top: 45px;
+    left: 45px;
+    color: #2E2E2E;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submit {
+    margin-left: 478px;
+    margin-top: 54px;
+    width: 822px;
+    height: 1080px;
+    border: 0.8px solid #000000;
+}
+
+.message {
+    position: relative;
+    width: 427px;
+    height: 167px;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);   
+    border-radius: 8px;
+    margin-left: 52px;
+    margin-top: 54px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.message h1 {
+    color: #1A1A1A;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 43px;
+}
+
+.message div {
+    position: absolute;
+    color: #000000;
+    width: 13px;
+    height: 13px;
+    right: 15px;
+    top: 15px
+}
+
+.submit {
+    display: flex;
+    flex-direction: column;
+    padding: 0 80px;
+}
+
+.submit-info {
+    position: relative;
+    margin-top: 68px;
+    min-height: 200px;
+    border-bottom: 1px solid #C8C8C8;
+}
+
+.submit-info h1 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    color: #F93B1D;
+}
+
+.submit-info .mail,
+.submit-info .mobile {
+    display: flex;
+    margin-top: 17px;
+}
+
+.mail p,
+.mobile p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #1A1A1A;
+    margin-left: 12px;
+}
+
+.submit-info .aboutMe {
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    max-width: 432px;
+    min-height: 100px;
+    height: auto;
+}
+.aboutMe {
+    color: #F93B1D;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.aboutMe p {
+    word-break: break-all;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: black;
+    margin-top: 15px;
+}
+
+.submit-person {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 246px;
+    height: 246px;
+    border-radius: 50%;
+}
+
+.submit-experiences {
+    min-height: 200px;
+    height: auto;
+    border-bottom: 1px solid #C8C8C8;
+}
+
+.submit-experiences h3,
+.submit-educations h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F93B1D;
+    margin-top: 24px;
+}
+
+.submit-experiences-position,
+.submit-educations-institute {
+    margin-top: 15px;
+    display: flex;
+}
+
+.submit-experiences-position p,
+.submit-educations-instituete p {
+    margin-right: 7px;
+    color: #1A1A1A;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.submit-experiences-date,
+.submit-educations-date {
+    /* text-decoration: italic; */
+    color: #919191;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 7px;
+}
+
+.submit-experiences-text,
+.submit-educations-text {
+    min-width: 100px;
+    width: 100%;
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 16px;
+}

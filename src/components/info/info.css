@@ -87,7 +87,8 @@ person image styles
  */
 
 .info-img #upload {
-    display: none;
+    /* display: none; */
+    opacity: 0;
 }
 .info-img .input {
     width: 107px;

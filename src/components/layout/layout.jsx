@@ -33,22 +33,6 @@ const Layout = (props) => {
         setInfoForm(form)
     }
 
-    function dataURLtoFile(dataurl, filename) {
- 
-        if(dataurl) {
-            var arr = dataurl?.split(','),
-            mime = arr[0].match(/:(.*?);/)[1],
-            bstr = atob(arr[1]), 
-            n = bstr.length, 
-            u8arr = new Uint8Array(n);
-            while(n--){
-                u8arr[n] = bstr.charCodeAt(n);
-            }
-            
-            return new File([u8arr], filename, {type:mime});
-        }
-
-    }
 
     
    
@@ -59,14 +43,13 @@ const Layout = (props) => {
             name: infoForm?.firstName,
             surname: infoForm?.lastName,
             email: infoForm?.email,
-            phone_number: infoForm?.mobile.split(' ').join(''),
+            phone_number: infoForm?.mobile?.split(' ').join(''),
             experiences: experiencesArray,
             educations: degreeIdUpdate,
-            image: dataURLtoFile(infoForm?.img, 'avatar.png'),
+            image: infoForm?.img,
             about_me: infoForm?.aboutMe
         })
         
-        console.log(data)
     },[infoForm,educationsArray,experiencesArray])
 
     useEffect(() => {

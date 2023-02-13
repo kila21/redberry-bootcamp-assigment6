@@ -53,6 +53,8 @@ const Education = (props) => {
 
     const Submit = () => {
         if(isValid) {
+            sessionStorage.clear()
+            sessionStorage.setItem('mainData', JSON.stringify(props.mainData))
             navigate('/submit')
 
         }else {

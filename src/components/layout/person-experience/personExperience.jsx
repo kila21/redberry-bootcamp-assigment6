@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 const PersonExperience = (props) =>{
     const displayPersonExperiences = () => {
-        console.log(props)
+
         if(props.experienceForms) {
             return props.experienceForms.map((item,index) => {
                 return (
