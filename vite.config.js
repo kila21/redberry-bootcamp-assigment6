@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/redberry-bootcamp-assigment6/',
   plugins: [react()],
+  build: {
+    outDir: 'dist'
+  }
 })
