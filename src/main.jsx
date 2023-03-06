@@ -11,7 +11,7 @@ import Submit from './components/submit/submit'
 import './index.css'
 
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {path: '/', element: <App />},
   {path: '/createCV/*', element: <Layout />},
   {path: '/submit', element: <Submit />}
