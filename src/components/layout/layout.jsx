@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Info from '../info/info'
-import LayoutRight from './LayoutRight/LayoutRight'
+import LayoutRight from './layoutRight/layoutRight'
+
 
 import './layout.css'
 import { useState,useEffect } from 'react';
