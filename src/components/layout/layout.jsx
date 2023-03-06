@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-// import {withRouter} from 'react-router'
+
 import Info from '../info/info'
 import LayoutRight from './LayoutRight/LayoutRight'
 
@@ -7,7 +7,7 @@ import './layout.css'
 import { useState,useEffect } from 'react';
 import Education from '../education/education';
 import Experience from '../experience/experience';
-import { set } from 'react-hook-form';
+
 
 
 const Layout = (props) => {
