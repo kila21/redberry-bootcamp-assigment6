@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import './PersonEducation.css'
+import './personEducation.css'
 
 
 const PersonEducation = (props) => {
