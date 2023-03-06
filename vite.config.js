@@ -6,6 +6,8 @@ export default defineConfig({
   base: '/redberry-bootcamp-assigment6/',
   plugins: [react()],
   build: {
-    outDir: 'dist'
+    root: 'src',
+    outDir: '../dist',
+    emptyOutDir: true
   }
 })
