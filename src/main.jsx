@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
   {path: '/', element: <App />},
   {path: '/createCV/*', element: <Layout />},
   {path: '/submit', element: <Submit />}
-],{basename: '/redberry-bootcamp-assigment6/'})
+])
 
 
 
